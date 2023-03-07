@@ -1,0 +1,17 @@
+version: "3.6"
+
+services:
+  proxy:
+    image: nginx:latest
+    volumes:
+      - ./conf:/etc/nginx/conf.d
+    ports:
+      - 80:80
+    networks:
+      - project2_mynet
+    restart: unless-stopped
+
+networks:
+  project2_mynet:
+    external: true
+
